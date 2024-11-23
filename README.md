@@ -50,3 +50,6 @@ export default {
 ## Make Web Site
 
 > pnpm install lucide-react
+
+## Deploy Vercel
+https://vercel.com/
