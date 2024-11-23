@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
+import EventList from "./pages/EventList";
 
 export default function App() {
   return (
@@ -7,7 +8,7 @@ export default function App() {
       <Routes>
         <Route index element={<Navigate to="/events" />} />
           <Route path="events" element={<Layout />}>
-          <Route path="events" element={<p>イベントリストを表示</p>} />
+          <Route index element={<EventList />} />
           {/* 動的な値に応じたURL */}
           <Route path="events/:id" element={<p>イベント詳細を表示</p>} />
           <Route path="events/:id/apply" element={<p>イベントに申し込む</p>} />
