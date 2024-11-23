@@ -1,34 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1 className="text-5xl text-green-500">Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Navigate to="/events" />} />
+        <Route path="events" element={<p>イベントリストを表示</p>} />
+        {/* 動的な値に応じたURL */}
+        <Route path="events/:id" element={<p>イベント詳細を表示</p>} />
+        <Route path="events/:id/apply" element={<p>イベントに申し込む</p>} />
+        <Route path="events/:id/confirm" element={<p>申し込み完了です</p>} />
+        {/* 存在しないURLの処理 */}
+        <Route path="*" element={<p>404 not found</p>} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App

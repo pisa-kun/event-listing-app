@@ -42,3 +42,11 @@ export default {
 }
 
 ```
+
+## Setting React Router
+
+> pnpm install react-router-dom@6
+
+## Make Web Site
+
+> pnpm install lucide-react
